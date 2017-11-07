@@ -1,0 +1,110 @@
+[
+	{
+		"text": "Sorry, there is no more time for questions.",
+		"gesture": "raise_arm_right"
+	},
+	{
+		"text": "Sorry, maybe it is better if you discuss this at the coffee break.",
+		"gesture": "raise_arm_right"
+	},
+	{
+		"text": "Sorry, maybe you can discuss this during the coffee break.",
+		"gesture": "raise_arm_right"
+	},
+	{
+		"text": "Sorry, maybe you can discuss this later.",
+		"gesture": "raise_arm_right"
+	},
+	{
+		"text": "Thank you again for your interesting presentation.",
+		"gesture": "bow_short"
+	},
+	{
+		"text": "I have one question. What's the next step?",
+		"gesture": "thinking"
+	},
+	{
+		"text": "No questions at all? Don't be shy.",
+		"gesture": "rotate_head_left_right"
+	},
+	{
+		"text": "I have one question. What is your next challenge?",
+		"gesture": "thinking"
+	},
+	{
+		"text": "Thanks for the presentation.",
+		"gesture": "applause"
+	},
+	{
+		"text": "Thanks again.",
+		"gesture": "applause"
+	},
+	{
+		"text": "This session is over.",
+		"gesture": "applause"
+	},
+	{
+		"text": "This was the last presentation for this session.",
+		"gesture": "open-arms"
+	},
+	{
+		"text": "This was the last presentation for today. Thanks again to all the speakers for their interesting presentations.",
+		"gesture": "applause"
+	},
+	{
+		"text": "You may enjoy now the coffee break.",
+		"gesture": "open-arms"
+	},
+	{
+		"text": "It's lunchtime now.",
+		"gesture": "open-arms"
+	},
+	{
+		"text": "Time to head to the welcome party.",
+		"gesture": "open-arms"
+	},
+	{
+		"text": "Time to head to the farewell party.",
+		"gesture": "open-arms"
+	},
+	{
+		"text": "See you at the banquet.",
+		"gesture": "open-arms"
+	},
+	{
+		"text": "See you back in 1 hour.",
+		"gesture": "bye-bye"
+	},
+	{
+		"text": "See you back in 30 minutes.",
+		"gesture": "bye-bye"
+	},
+	{
+		"text": "Apparently we have some technical problems.",
+		"gesture": "open-arms"
+	},
+	{
+		"text": "Can anybody help the speaker?",
+		"gesture": "rotate_head_left_right"
+	},
+	{
+		"text": "I said there is no more time.",
+		"gesture": "bye-bye"
+	},
+	{
+		"text": "We are a bit late on the schedule. Sorry for the inconvenience.",
+		"gesture": "bow"
+	},
+	{
+		"text": "We are perfectly on schedule. Thanks for the cooperation.",
+		"gesture": "bow"
+	},
+	{
+		"text": "I would like to invite on stage the organisers of the conference.",
+		"gesture": "open-arms"
+	},
+	{
+		"text": "I would like to invite on stage my co-chair.",
+		"gesture": "open-arms"
+	}
+]

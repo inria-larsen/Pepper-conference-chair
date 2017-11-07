@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package uuid="timer-1bb51c" version="0.0.0">
+ <names>
+  <name lang="en_US">timer_core</name>
+ </names>
+ <descriptions>
+  <description lang="en_US">This application is a base for a timer display on the screen, value with a java script.</description>
+  <description lang="fr_FR">L'application est la base d'affichage pour un timer à envoyer via un java script.</description>
+ </descriptions>
+ <supportedLanguages>
+  <language>en_US</language>
+  <language>fr_FR</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+  <language>fr_FR</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+</package>

@@ -1,0 +1,20 @@
+[
+	{
+		"id": 1,
+		"introduction": ["Hello, my name is Pepper. I will be your meeting chair this afternoon.", "Today we have a presentation by Lucien about himself and his work with us."],
+		"duration": 5,
+		"extraDuration": 1
+	},
+	{
+		"id": 2,
+		"introduction": ["We will continue with Antoine who present himself and the goal of his work here."],
+		"duration": 5,
+		"extraDuration": 1
+	},
+	{
+		"id": 3,
+		"introduction": ["Baptiste will do the last presentation about his work with me","The title is: Pepper conference chair."],
+		"duration": 15,
+		"extraDuration": 2
+	}
+]

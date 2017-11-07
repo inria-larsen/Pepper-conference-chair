@@ -1,0 +1,44 @@
+[
+	{
+		"id": 1,
+		"introduction": ["Hello I am Pepper."],
+		"duration": 2,
+		"extraDuration": 1
+	},
+	{
+		"id": 2,
+		"introduction": ["I am a robot", "I am going to work for you", "My job is to be your assistant."],
+		"duration": 5,
+		"extraDuration": 2
+	},
+	{
+		"id": 3,
+		"introduction": ["Today I am a co-chair", "I will keep the time of the presentations.", "Nice, right?"],
+		"duration": 5,
+		"extraDuration": 5
+	},
+	{
+		"id": 4,
+		"introduction": ["But don't expect too much", "I am not intelligent, nor autonomous."],
+		"duration": 3,
+		"extraDuration": 2
+	},
+	{
+		"id": 5,
+		"introduction": ["The real world is so complex.", "My master prefered to not make me behave autonomously, as she thinks that I will make many mistakes and everybody will laugh at our failure."],
+		"duration": 2,
+		"extraDuration": 1
+	},
+	{
+		"id": 6,
+		"introduction": ["So I will be mostly tele-operated, as you can imagine.", "But you know: Sonny also appears to have emotions and dreams."],
+		"duration": 2,
+		"extraDuration": 1
+	},
+	{
+		"id": 7,
+		"introduction": ["Maybe if I behave and if you like me, next year I will be an autonomous co-chair", "Enough with chatting, let's start."],
+		"duration": 2,
+		"extraDuration": 1
+	}
+]

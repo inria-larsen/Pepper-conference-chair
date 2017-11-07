@@ -1,0 +1,132 @@
+[
+	{
+		"id": 1,
+		"name": “here”,
+		"title": “well you can read it”,
+		"description_speaker": "The next speaker is ",
+		"description_title": “The presentation is titled ",
+		"description_final": "Please", 
+		"gesture": "",
+		"duration": 2
+	},
+	{
+		"id": 10,
+		"description": "The title of the presentation is ",
+		"gesture": "alive",
+		"duration": 2
+	},
+	{
+		"id": 11,
+		"description": "The presentation is about“,
+		"gesture": "alive",
+		"duration": 2
+	},
+	{
+		"id": 120,
+		"description": “You have five minutes“,
+		"gesture": "alive",
+		"duration": 1
+	},
+	{
+		"id": 121,
+		"description": “You have ten minutes“,
+		"gesture": "alive",
+		"duration": 1
+	},
+	{
+		"id": 122,
+		"description": “You have twelve minutes“,
+		"gesture": "alive",
+		"duration": 1
+	},
+	{
+		"id": 123,
+		"description": “You have fifteen minutes“,
+		"gesture": "alive",
+		"duration": 1
+	},
+	{
+		"id": 124,
+		"description": “You have twenty minutes“,
+		"gesture": "alive",
+		"duration": 1
+	},
+	{
+		"id": 125,
+		"description": “You have twenty-five minutes“,
+		"gesture": "alive",
+		"duration": 1
+	},
+	{
+		"id": 131,
+		"description": “The stage is yours“,
+		"gesture": “open_arms”,
+		"duration": 1
+	},
+	{
+		"id": 132,
+		"description": “Please“,
+		"gesture": “open_arms”,
+		"duration": 1
+	},
+
+	{
+		"id": 2,
+		"description": "Thank you for your presentation.",
+		"gesture": “bow_short”,
+		"duration": 1
+	},
+	{
+		"id": 30,
+		"description": “Are there any questions?",
+		"gesture": "rotate_head_left_right",
+		"duration": 1
+	},
+	{
+		"id": 31,
+		"description": "No questions?",
+		"gesture": "rotate_head_left_right",
+		"duration": 1
+	},
+	{
+		"id": 32,
+		"description": "We have one question over there on the right!",
+		"gesture": "pointing_left",
+		"duration": 1
+	},
+	{
+		"id": 33,
+		"description": "We have one question over there!",
+		"gesture": "pointing_center",
+		"duration": 1
+	},
+	{
+		"id": 34,
+		"description": "We have one question over there on the left!",
+		"gesture": "pointing_right",
+		"duration": 1
+	},
+	{
+		"id": 4,
+		"description": "I have one.",
+		"gesture": “raise_right_arm_question”,
+		"duration": 1
+	},
+	{
+		"id": 4,
+		"description": "What is your next challenge?",
+		"duration": 1
+	},
+	{
+		"id": 1010,
+		"description": "Let me tell you a story. Why was the robot angry? Because someone kept pushing his buttons!",
+		"gesture": "alive",
+		"duration": 2
+	}
+	{
+		"id": 1011,
+		"description": "AH AH LOL",
+		"gesture": "laughing",
+		"duration": 2
+	}
+]

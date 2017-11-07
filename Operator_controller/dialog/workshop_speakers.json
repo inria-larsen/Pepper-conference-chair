@@ -1,0 +1,110 @@
+[
+	{
+		"id": 1,
+		"introduction": ["Hello, my name is Pepper. I will be your co-chair this afternoon.", "I will make sure that the speakers keep the time of their presentations."],
+		"duration": 5,
+		"extraDuration": 1
+	},
+	{
+		"id": 2,
+		"introduction": ["Serena Ivaldi will now introduce the workshop."],
+		"duration": 15,
+		"extraDuration": 2
+	},
+	{
+		"id": 3,
+		"introduction": ["The first speaker is Francesco Nori, from Google Deep Mind."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 4,
+		"introduction": ["We now have the short presentations from the authors presenting a poster."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 5,
+		"introduction": ["I hope your coffee was good. The next speaker is Abderramane Kheddar, from LIRMM."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 6,
+		"introduction": ["The next speaker is Rudolf Lioutikov, from TU Darmstadt."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 7,
+		"introduction": ["The next speaker is Dongheui Lee, from TU Munich and DLR."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 8,
+		"introduction": ["The next speaker is ..."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 9,
+		"introduction": ["Keep the questions for the discussions in the afternoon! Now it is time for lunch. See you at half past one!"],
+		"duration": 1,
+		"extraDuration": 0
+	},
+	{
+		"id": 10,
+		"introduction": ["Welcome back! We have great speakers for this afternoon session. The first speaker is Chris Atkenson, from CMU."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 11,
+		"introduction": ["The next speaker is Sethu Vijaykumar, from the University of Edinburgh."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 12,
+		"introduction": ["The next speaker is ..."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 13,
+		"introduction": ["Time for coffee and posters! See you in 20 minutes!"],
+		"duration": 1,
+		"extraDuration": 0
+	},
+	{
+		"id": 14,
+		"introduction": ["Welcome back, I hope your coffee was good. The next speaker is Graham Deacon, from Ocado Technologies."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 15,
+		"introduction": ["The next speaker is Luka Peternel, from IIT."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 16,
+		"introduction": ["The next speaker is ..."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 17,
+		"introduction": ["Wow, we had a lot of interesting talks today. Time to discuss!"],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 18,
+		"introduction": ["Sorry to interrupt, but it is time to leave the room! Thanks for the beautiful discussions. I cannot drink, otherwise I would join you for a drink in a British pub! Well, see you tomorrow."],
+		"duration": 1,
+		"extraDuration": 0
+	}
+]

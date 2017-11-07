@@ -1,0 +1,9 @@
+.DS_Store 
+*~
+*.bak
+
+# python files
+*.pyc
+
+# log files
+*log_*.txt
