@@ -11,7 +11,7 @@ Therefore we provide a GUI to pilot the robot in a Wizard of Oz mode, if needed.
 Future works include trying to make this demo as much as autonomous as it can be, considering that:
 - the speech recognition of Pepper does not work in a lab meeting room, you need to be very close to the robot and pronounce things almost perfectly;
 - from the oboard camera it is very difficult to identify human behavioral cues that indicate "I want to ask a question", especially in a lab meeting room with dim lights
-- making it robust to real situations
+- lab meetings and conferences are plenty of unpredictable events, exceptions, and so on
 
 
 ## Requirements
