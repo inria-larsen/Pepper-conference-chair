@@ -2,14 +2,14 @@
 	{
 		"id": 1,
 		"introduction": ["Hello, my name is Pepper. I will be your co-chair this afternoon.", "I will make sure that the speakers keep the time of their presentations."],
-		"duration": 5,
-		"extraDuration": 1
+		"duration": 0,
+		"extraDuration": 0
 	},
 	{
 		"id": 2,
 		"introduction": ["Serena Ivaldi will now introduce the workshop."],
-		"duration": 15,
-		"extraDuration": 2
+		"duration": 25,
+		"extraDuration": 5
 	},
 	{
 		"id": 3,
@@ -50,7 +50,7 @@
 	{
 		"id": 9,
 		"introduction": ["Keep the questions for the discussions in the afternoon! Now it is time for lunch. See you at half past one!"],
-		"duration": 1,
+		"duration": 0,
 		"extraDuration": 0
 	},
 	{
@@ -74,7 +74,7 @@
 	{
 		"id": 13,
 		"introduction": ["Time for coffee and posters! See you in 20 minutes!"],
-		"duration": 1,
+		"duration": 0,
 		"extraDuration": 0
 	},
 	{
@@ -104,7 +104,7 @@
 	{
 		"id": 18,
 		"introduction": ["Sorry to interrupt, but it is time to leave the room! Thanks for the beautiful discussions. I cannot drink, otherwise I would join you for a drink in a British pub! Well, see you tomorrow."],
-		"duration": 1,
+		"duration": 0,
 		"extraDuration": 0
 	}
 ]

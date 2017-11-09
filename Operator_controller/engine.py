@@ -404,6 +404,28 @@ class Engine(threading.Thread):
 	def breakQuestions(self):
 		self.setState('breakQuestionsTime')
 
+	
+	####################
+	## Set Introduce State
+	####################
+	def introduceState(self):
+		self.setState('introduce')
+		print('>> [DEBUG]  Set state = introduce')
+
+	####################
+	## Set Listen State
+	####################
+	def listenState(self):
+		self.setState('listen')
+		print('>> [DEBUG]  Set state = listen')
+
+	####################
+	## Set Asking State
+	####################
+	def askingState(self):
+		self.setState('asking')
+		print('>> [DEBUG] Set state = asking')
+
 
 
 	####################
@@ -511,10 +533,11 @@ class Engine(threading.Thread):
 	def goSpeak(self):
 		if self.commands.speakingLocation is not None:
 			self.goTo(self.commands.speakingLocation)
+			print('>> Go to speaking position complete')
 		else:
-			print('No speaking location defined')
+			print('>> [ERR] Could not go to speaking location - No speaking location defined')
 
-		print('>> Go to speaking position complete')
+		
 
 
 
@@ -524,10 +547,11 @@ class Engine(threading.Thread):
 	def goWait(self):
 		if self.commands.waitingLocation is not None:
 			self.goTo(self.commands.waitingLocation)
+			print('>> Go to waiting position complete')
 		else:
-			print('No waiting location defined')
+			print('>> [ERR] Could not go to waiting location - No waiting location defined')
 
-		print('>> Go to waiting position complete')
+		
 
 
 
@@ -537,10 +561,11 @@ class Engine(threading.Thread):
 	def goQuestion(self):
 		if self.commands.askingLocation is not None:
 			self.goTo(self.commands.askingLocation)
+			print('>> Go to asking position complete')
 		else:
-			print('No asking location defined')
+			print('>> [ERR] Could not go to asking location - No asking location defined')
 
-		print('>> Go to asking position complete')
+		
 
 
 

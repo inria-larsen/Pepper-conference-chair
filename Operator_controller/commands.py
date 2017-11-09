@@ -120,6 +120,7 @@ class Commands():
 
 		buttonSize = 12
 		longButtonSize = 20
+		longerButtonSize = 28
 
 		# Allow keyboard control
 		self.rootGui.bind('<KeyPress>', self.pilotPress)
@@ -128,8 +129,9 @@ class Commands():
 		self.frame = Frame(self.rootGui, borderwidth = 2, relief = GROOVE)
 		self.frame.pack(side = TOP, fill = 'both', expand = 'yes')
 
+		#--------------------------------------------------------------------
 		# Information panels group
-		self.informationGroup = LabelFrame(self.frame, text = 'Informations', padx = 10, pady = 10)
+		self.informationGroup = LabelFrame(self.frame, text = 'Speakers information', padx = 10, pady = 10)
 		self.informationGroup.pack(side = TOP, fill = 'both', expand = 'yes')
 
 		self.idCurrentSpeaker = StringVar()
@@ -155,8 +157,19 @@ class Commands():
 		self.currentState.set('State: ')
 		Label(self.informationGroup, textvariable = self.currentState).pack(side = TOP, anchor = W)
 
+		# Speaker sub-group
+		self.buttonSpeakerInfoReady = Button(self.informationGroup, width = buttonSize, text = 'Speaker ready', command = lambda x = 1: self.executeCommandOnCurrentThread('speakerReady'))
+		self.buttonSpeakerInfoReady.pack(side = LEFT)
+		self.buttonSpeakerInfoFirst = Button(self.informationGroup, width = buttonSize, text = 'First speaker', command = lambda x = 1: self.checkEngine('firstSpeaker'))
+		self.buttonSpeakerInfoFirst.pack(side = LEFT)
+		self.buttonSpeakerInfoNext = Button(self.informationGroup, width = buttonSize, text = 'Next speaker', command = lambda x = 1: self.checkEngine('next'))
+		self.buttonSpeakerInfoNext.pack(side = LEFT)
+		self.buttonSpeakerInfoPrevious = Button(self.informationGroup, width = buttonSize, text = 'Previous speaker', command = lambda x = 1: self.checkEngine('previous'))
+		self.buttonSpeakerInfoPrevious.pack(side = LEFT)
+
+		#--------------------------------------------------------------------
 		# Move robot group
-		self.moveRobotGroup = LabelFrame(self.frame, text = 'Locations', padx = 10, pady = 10)
+		self.moveRobotGroup = LabelFrame(self.frame, text = 'Move robot', padx = 10, pady = 10)
 		self.moveRobotGroup.pack(side = TOP, fill = 'both')
 
 		self.infoSaveLocation = StringVar()
@@ -176,8 +189,9 @@ class Commands():
 		self.buttonTurnLeft = Button(self.moveRobotGroup, width = buttonSize, text = 'Q: Turn left', command = lambda x = 1: self.checkEngine('moveRobotTurnLeft'))
 		self.buttonTurnLeft.pack(side = LEFT)
 
+		#--------------------------------------------------------------------
 		# Save basic locations group
-		self.locationGroup = LabelFrame(self.frame, text = 'Save Locations', padx = 10, pady = 10)
+		self.locationGroup = LabelFrame(self.frame, text = 'Save key locations', padx = 10, pady = 10)
 		self.locationGroup.pack(side = TOP, fill = 'both')
 
 		self.infoSaveLocation = StringVar()
@@ -196,63 +210,52 @@ class Commands():
 		self.presentationButtonsGroup = LabelFrame(self.frame, text = 'Presentation', padx = 10, pady = 10)
 		self.presentationButtonsGroup.pack(side = TOP, fill = 'both')
 
-		# Automatique sub-group
-		self.buttonInit = Button(self.presentationButtonsGroup, width = buttonSize, text = 'Initialisation', command = lambda x = 1: self.checkEngine('init'))
-		self.buttonInit.grid(row = 1, column = 1)
-
-		self.buttonLaunch = Button(self.presentationButtonsGroup, width = buttonSize, text = 'Launch', command = lambda x = 1: self.checkEngine('launch'))
-		self.buttonLaunch.grid(row = 1, column = 2)
-
 		# Commands sub-group
-		self.buttonIntroduce = Button(self.presentationButtonsGroup, width = buttonSize, text = 'Introduce', command = lambda x = 1: self.checkEngine('introduce'))
-		self.buttonIntroduce.grid(row = 1, column = 5)
-		self.buttonListen = Button(self.presentationButtonsGroup, width = buttonSize, text = 'Listen', command = lambda x = 1: self.checkEngine('listen'))
-		self.buttonListen.grid(row = 2, column = 5)
-		self.buttonAsk = Button(self.presentationButtonsGroup, width = buttonSize, text = 'Ask', command = lambda x = 1: self.checkEngine('asking'))
-		self.buttonAsk.grid(row = 3, column = 5)
+		self.buttonIntroduce = Button(self.presentationButtonsGroup, width = longerButtonSize, text = '[speak] Say text for this speaker', command = lambda x = 1: self.checkEngine('introduce'))
+		self.buttonIntroduce.grid(row = 1, column = 3)
+		self.buttonListen = Button(self.presentationButtonsGroup, width = longerButtonSize, text = '[wait] Say time + countdown', command = lambda x = 1: self.checkEngine('listen'))
+		self.buttonListen.grid(row = 2, column = 3)
+		self.buttonAsk = Button(self.presentationButtonsGroup, width = longerButtonSize, text = '[ask] Ask any questions', command = lambda x = 1: self.checkEngine('asking'))
+		self.buttonAsk.grid(row = 3, column = 3)
 
 		# Breakers sub-group
-		self.buttonBreakAsk = Button(self.presentationButtonsGroup, width = buttonSize, text='More questions', command = lambda x = 1: self.executeCommandOnCurrentThread('moreQuestions'))
-		self.buttonBreakAsk.grid(row = 1, column = 6)
-		self.buttonBreakListen = Button(self.presentationButtonsGroup, width = buttonSize, text='Break listen', command = lambda x = 1: self.executeCommandOnCurrentThread('breakListen'))
-		self.buttonBreakListen.grid(row = 2, column = 6)
-		self.buttonBreakAsk = Button(self.presentationButtonsGroup, width = buttonSize, text='Break questions', command = lambda x = 1: self.executeCommandOnCurrentThread('breakQuestions'))
-		self.buttonBreakAsk.grid(row = 3, column = 6)
+		self.buttonBreakListen = Button(self.presentationButtonsGroup, width = longerButtonSize, text='Break listen + stop countdown + Thanks', command = lambda x = 1: self.executeCommandOnCurrentThread('breakListen'))
+		self.buttonBreakListen.grid(row = 2, column = 4)
+		self.buttonBreakAsk = Button(self.presentationButtonsGroup, width = longerButtonSize, text='Break questions + Thanks again', command = lambda x = 1: self.executeCommandOnCurrentThread('breakQuestions'))
+		self.buttonBreakAsk.grid(row = 3, column = 4)
 
 		# Go to locations sub-group
-		self.buttonGoToSpeak = Button(self.presentationButtonsGroup, width = buttonSize, text = 'Go to speaking', command = lambda x = 1: self.checkEngine('goSpeak'))
-		self.buttonGoToSpeak.grid(row = 1, column = 3)
-		self.buttonGoToWait = Button(self.presentationButtonsGroup, width = buttonSize, text = 'Go to waiting', command = lambda x = 1: self.checkEngine('goWait'))
-		self.buttonGoToWait.grid(row = 2, column = 3)
-		self.buttonGoToQuestion = Button(self.presentationButtonsGroup, width = buttonSize, text = 'Go to asking', command = lambda x = 1: self.checkEngine('goQuestion'))
-		self.buttonGoToQuestion.grid(row = 3, column = 3)
+		self.buttonGoToSpeak = Button(self.presentationButtonsGroup, width = longButtonSize, text = 'Go to speaking location', command = lambda x = 1: self.checkEngine('goSpeak'))
+		self.buttonGoToSpeak.grid(row = 1, column = 1)
+		self.buttonGoToWait = Button(self.presentationButtonsGroup, width = longButtonSize, text = 'Go to waiting location', command = lambda x = 1: self.checkEngine('goWait'))
+		self.buttonGoToWait.grid(row = 2, column = 1)
+		self.buttonGoToQuestion = Button(self.presentationButtonsGroup, width = longButtonSize, text = 'Go to asking location', command = lambda x = 1: self.checkEngine('goQuestion'))
+		self.buttonGoToQuestion.grid(row = 3, column = 1)
 
-		# Save locations sub-group
-		self.buttonSaveSpeak = Button(self.presentationButtonsGroup, width = buttonSize, text = 'Save speaking', command = lambda x = 1: self.checkEngine('saveSpeak'))
-		self.buttonSaveSpeak.grid(row = 1, column = 4)
-		self.buttonSaveWait = Button(self.presentationButtonsGroup, width = buttonSize, text = 'Save waiting', command = lambda x = 1: self.checkEngine('saveWait'))
-		self.buttonSaveWait.grid(row = 2, column = 4)
-		self.buttonSaveQuestion = Button(self.presentationButtonsGroup, width = buttonSize, text = 'Save asking', command = lambda x = 1: self.checkEngine('saveQuestion'))
-		self.buttonSaveQuestion.grid(row = 3, column = 4)
+		self.buttonStateIntroduce = Button(self.presentationButtonsGroup, width = buttonSize, text = 'State speak', command = lambda x = 1: self.checkEngine('introduceState'))
+		self.buttonStateIntroduce.grid(row = 1, column = 2)
+		self.buttonStateListen = Button(self.presentationButtonsGroup, width = buttonSize, text = 'State listen', command = lambda x = 1: self.checkEngine('listenState'))
+		self.buttonStateListen.grid(row = 2, column = 2)
+		self.buttonStateAsk = Button(self.presentationButtonsGroup, width = buttonSize, text = 'State questions', command = lambda x = 1: self.checkEngine('askingState'))
+		self.buttonStateAsk.grid(row = 3, column = 2)
 
-		# Speaker sub-group
-		self.buttonSpeakerReady = Button(self.presentationButtonsGroup, width = buttonSize, text = 'Speaker ready', command = lambda x = 1: self.executeCommandOnCurrentThread('speakerReady'))
-		self.buttonSpeakerReady.grid(row = 2, column = 1)
-		self.buttonSpeakerFirst = Button(self.presentationButtonsGroup, width = buttonSize, text = 'First speaker', command = lambda x = 1: self.checkEngine('firstSpeaker'))
-		self.buttonSpeakerFirst.grid(row = 2, column = 2)
-		self.buttonSpeakerNext = Button(self.presentationButtonsGroup, width = buttonSize, text = 'Next speaker', command = lambda x = 1: self.checkEngine('next'))
-		self.buttonSpeakerNext.grid(row = 3, column = 1)
-		self.buttonSpeakerPrevious = Button(self.presentationButtonsGroup, width = buttonSize, text = 'Previous speaker', command = lambda x = 1: self.checkEngine('previous'))
-		self.buttonSpeakerPrevious.grid(row = 3, column = 2)
+		#--------------------------------------------------------------------
+		# Questions buttons group
+		self.questionsButtonsGroup = LabelFrame(self.frame, text = 'Question time', padx = 10, pady = 10)
+		self.questionsButtonsGroup.pack(side = TOP, fill = 'both')
 
-		# Arms sub-group
-		self.buttonPointLeft = Button(self.presentationButtonsGroup, width = longButtonSize, text = 'Question/Point Left', command = lambda x = 1: self.executeCommandOnCurrentThread('pointLeft'))
-		self.buttonPointLeft.grid(row = 1, column = 7)
-		self.buttonPointCenter = Button(self.presentationButtonsGroup, width = longButtonSize, text = 'Question/Point Center', command = lambda x = 1: self.executeCommandOnCurrentThread('pointCenter'))
-		self.buttonPointCenter.grid(row = 2, column = 7)
-		self.buttonPointRight = Button(self.presentationButtonsGroup, width = longButtonSize, text = 'Question/Point Right', command = lambda x = 1: self.executeCommandOnCurrentThread('pointRight'))
-		self.buttonPointRight.grid(row = 3, column = 7)
+		self.buttonBreakAsk = Button(self.questionsButtonsGroup, width = buttonSize, text='Any questions', command = lambda x = 1: self.executeCommandOnCurrentThread('moreQuestions'))
+		self.buttonBreakAsk.pack(side = LEFT)
+		
+		# Arms pointing gestures sub-group
+		self.buttonPointLeft = Button(self.questionsButtonsGroup, width = longButtonSize, text = 'Question/Point Left', command = lambda x = 1: self.executeCommandOnCurrentThread('pointLeft'))
+		self.buttonPointLeft.pack(side = LEFT)
+		self.buttonPointCenter = Button(self.questionsButtonsGroup, width = longButtonSize, text = 'Question/Point Center', command = lambda x = 1: self.executeCommandOnCurrentThread('pointCenter'))
+		self.buttonPointCenter.pack(side = LEFT)
+		self.buttonPointRight = Button(self.questionsButtonsGroup, width = longButtonSize, text = 'Question/Point Right', command = lambda x = 1: self.executeCommandOnCurrentThread('pointRight'))
+		self.buttonPointRight.pack(side = LEFT)
 
+		#--------------------------------------------------------------------
 		# Fast edit speak
 		self.fastSpeakingGroup = LabelFrame(self.frame, text = 'Fast speaking', padx = 10, pady = 10)
 		self.fastSpeakingGroup.pack(side = TOP, fill = 'both')
@@ -284,7 +287,7 @@ class Commands():
 		self.preEditedFastSpeakingGroupCanvas.create_window((0,0), window = self.preEditedFastSpeakingGroupSubFrame, anchor='nw')
 		self.preEditedFastSpeakingGroupSubFrame.bind("<Configure>",myfunction)
 
-		Label(self.preEditedFastSpeakingGroupSubFrame, text = 'Emergencies:').pack(side = TOP, anchor = W)
+		Label(self.preEditedFastSpeakingGroupSubFrame, text = 'Text for Emergencies:').pack(side = TOP, anchor = W)
 
 		indice = 0
 		emergencies = self.data_service.getEmergencies()
@@ -310,26 +313,55 @@ class Commands():
 			dic[b] = Button(self.preEditedFastSpeakingGroupSubFrame, text = dic[a], relief=FLAT, command = lambda x = dic[a]: self.loadInFastSpeaking(x))
 			dic[b].pack(side = TOP, anchor = W)
 
+
+		#--------------------------------------------------------------------
+		# Autonomous mode group
+		self.automaticLoopGroup = LabelFrame(self.frame, text = 'Autonomous mode (loop)', padx = 10, pady = 10)
+		self.automaticLoopGroup.pack(side = TOP, fill = 'both')
+
+		self.infoAutoMode = StringVar()
+		self.infoAutoMode.set('These buttons are useful if you want the Pepper to run in autonomous mode using the timings for each speaker. ')
+		Label(self.automaticLoopGroup, textvariable = self.infoAutoMode).pack(side = TOP, anchor = W)
+
+		self.buttonAutoInit = Button(self.automaticLoopGroup, width = buttonSize, text = 'Initialisation', command = lambda x = 1: self.checkEngine('init'))
+		self.buttonAutoInit.pack(side = LEFT)
+
+		self.buttonAutoLaunch = Button(self.automaticLoopGroup, width = buttonSize, text = 'Launch', command = lambda x = 1: self.checkEngine('launch'))
+		self.buttonAutoLaunch.pack(side = LEFT)
+
+		self.buttonAutoStop = Button(self.automaticLoopGroup, width = longButtonSize, text = 'Stop a current action', command = lambda x = 1: self.executeCommandOnCurrentThread('stop'))
+		self.buttonAutoStop.pack(side = LEFT)
+
+		self.buttonAutoPause = Button(self.automaticLoopGroup, width = buttonSize, text = 'Pause action', command = lambda x = 1: self.executeCommandOnCurrentThread('pause'))
+		self.buttonAutoPause.pack(side = LEFT)
+
+		self.buttonAutoResume = Button(self.automaticLoopGroup, width = buttonSize, text = 'Resume action', command = lambda x = 1: self.executeCommandOnCurrentThread('resume'))
+		self.buttonAutoResume.pack(side = LEFT)
+
 		#----------------------------------------------------------------------------------------------------
 		# Bottom buttons group
-		self.bottom = LabelFrame(self.frame, text = 'Loop', padx = 10, pady = 10)
+		self.bottom = LabelFrame(self.frame, text = 'Execution mode', padx = 10, pady = 10)
 		self.bottom.pack(side = BOTTOM, fill = 'both')
 
-		self.buttonStop = Button(self.bottom, width = buttonSize, text = 'Stop', command = lambda x = 1: self.executeCommandOnCurrentThread('stop'))
+		self.buttonStop = Button(self.bottom, width = longButtonSize, text = 'Stop a current action', command = lambda x = 1: self.executeCommandOnCurrentThread('stop'))
 		self.buttonStop.pack(side = LEFT)
 
-		self.buttonPause = Button(self.bottom, width = buttonSize, text = 'Pause', command = lambda x = 1: self.executeCommandOnCurrentThread('pause'))
+		self.buttonPause = Button(self.bottom, width = buttonSize, text = 'Pause action', command = lambda x = 1: self.executeCommandOnCurrentThread('pause'))
 		self.buttonPause.pack(side = LEFT)
 
-		self.buttonResume = Button(self.bottom, width = buttonSize, text = 'Resume', command = lambda x = 1: self.executeCommandOnCurrentThread('resume'))
+		self.buttonResume = Button(self.bottom, width = buttonSize, text = 'Resume action', command = lambda x = 1: self.executeCommandOnCurrentThread('resume'))
 		self.buttonResume.pack(side = LEFT)
 
-		self.buttonExit = Button(self.bottom, width = buttonSize, text = 'Exit', command = self.shutDownWindows)
+		self.buttonExit = Button(self.bottom, width = buttonSize, text = 'EXIT Application', command = self.shutDownWindows)
 		self.buttonExit.pack(side = LEFT)
 
 		# Allow mouse focus control
 		self.informationGroup.bind('<Button-1>', self.disableFastSpeakingTextFocus)
+		self.moveRobotGroup.bind('<Button-1>', self.disableFastSpeakingTextFocus)
+		self.locationGroup.bind('<Button-1>', self.disableFastSpeakingTextFocus)
 		self.presentationButtonsGroup.bind('<Button-1>', self.disableFastSpeakingTextFocus)
+		self.questionsButtonsGroup.bind('<Button-1>', self.disableFastSpeakingTextFocus)
+		self.automaticLoopGroup.bind('<Button-1>', self.disableFastSpeakingTextFocus)
 		self.bottom.bind('<Button-1>', self.disableFastSpeakingTextFocus)
 
 		self.rootGui.mainloop()
