@@ -21,7 +21,6 @@ import math
 class Commands():
 
 
-
 	####################
 	## Initiate class
 	####################
@@ -29,27 +28,35 @@ class Commands():
 
 		self.session = sess
 
+		print ("*** GUI init")
+
 		# Initiate shut down variable
 		self.shut = False
 
 		# Initiate stack for engine theads
 		self.threads = []
 
+		print ("*** GUI parse config file")
 		# Read the config file (connect)
 		self.configParser = ConfigParser.RawConfigParser()
 		self.configParser.read(configFilePath)
 
+		print ("*** GUI parse speak file")
 		# Read the config file (global speaking)
 		self.configParserGlobal = ConfigParser.RawConfigParser()
 		self.configParserGlobal.read(speakingFilePath)
 
+		print ("*** GUI create movement service")
+		print (" IMPORTANT: if the program is stuck here, please check if the power plug of the Pepper is open - check behind, close to the rear wheel!!!!!")
 		# Create service for movement
 		self.movement_service = Movement(self.session)
 
+		print ("*** GUI create speech service")
 		# Create service for speech
 		self.speech_service = Speech(self.session, self.configParser, self.configParserGlobal)
 		self.session.service('ALSpeechRecognition').pause(True)
 
+		print ("*** GUI connect to tablet")
 		# Create service for tablet
 		self.tablet_service = Tablet(self.session, self.configParser)
 
@@ -62,13 +69,20 @@ class Commands():
 		# Initiate logger
 		self.log = Logger()
 
+
+		print ("*** GUI creation")
 		# Create main gui
 		self.rootGui = Tk()
 		self.rootGui.title('Pepper chair manager')
 		self.rootGui['bg']='white'
-		self.rootGui.resizable(width = False, height = True)
+		self.rootGui.resizable(width = True, height = True)
 		self.rootGui.minsize(width = 900, height = 500)
 		self.rootGui.maxsize(width = 900, height = 50000)
+		# important bug fix
+		# to close the GUI you need to disconnect from the robot before
+		# otherwise the robot stays in a zombie status and needs to be rebooted
+		# not even Choreographe can recover the robot
+		self.rootGui.protocol("WM_DELETE_WINDOW", self.shutDownWindows)
 
 		# Initialise variables used
 		self.speakingLocation = None
@@ -78,6 +92,7 @@ class Commands():
 		self.currentSpeaker = self.data_service.getFirstSpeaker()
 		self.currentTimer = self.currentSpeaker.duration
 
+		print ("*** GUI autonomous life settings")
 		# Get autonomous life activation status from .cfg
 		autonomousBlinking_status = self.configParser.get('autonomousLife', 'AutonomousBlinking')
 		backgroundMovement_status = self.configParser.get('autonomousLife', 'BackgroundMovement')
@@ -93,6 +108,7 @@ class Commands():
 		self.life_service.setAutonomousAbilityEnabled('ListeningMovement', listeningMovement_status == 'True')
 		self.life_service.setAutonomousAbilityEnabled('SpeakingMovement', speakingMovement_status == 'True')
 
+		print ("*** GUI run")
 		self.runGui()
 
 
@@ -103,6 +119,7 @@ class Commands():
 	def runGui(self):
 
 		buttonSize = 12
+		longButtonSize = 20
 
 		# Allow keyboard control
 		self.rootGui.bind('<KeyPress>', self.pilotPress)
@@ -138,6 +155,39 @@ class Commands():
 		self.currentState.set('State: ')
 		Label(self.informationGroup, textvariable = self.currentState).pack(side = TOP, anchor = W)
 
+		# Save basic locations group
+		self.locationGroup = LabelFrame(self.frame, text = 'Locations', padx = 10, pady = 10)
+		self.locationGroup.pack(side = TOP, fill = 'both')
+
+		self.infoSaveLocation = StringVar()
+		self.infoSaveLocation.set('Move the robot with the keyboard to identify the 3 basic locations. ')
+		Label(self.locationGroup, textvariable = self.infoSaveLocation).pack(side = TOP, anchor = W)
+
+		self.buttonMoveRight = Button(self.locationGroup, width = buttonSize, text = 'Move right', command = lambda x = 1: self.checkEngine('moveRobotRight'))
+		self.buttonMoveRight.pack(side = LEFT)
+		self.buttonMoveLeft = Button(self.locationGroup, width = buttonSize, text = 'Move left', command = lambda x = 1: self.checkEngine('moveRobotLeft'))
+		self.buttonMoveLeft.pack(side = LEFT)
+		self.buttonMoveForward = Button(self.locationGroup, width = buttonSize, text = 'Move forward', command = lambda x = 1: self.checkEngine('moveRobotForward'))
+		self.buttonMoveForward.pack(side = LEFT)
+		self.buttonMoveBackward = Button(self.locationGroup, width = buttonSize, text = 'Move forward', command = lambda x = 1: self.checkEngine('moveRobotBackward'))
+		self.buttonMoveBackward.pack(side = LEFT)
+		self.buttonTurnRight = Button(self.locationGroup, width = buttonSize, text = 'Tur right', command = lambda x = 1: self.checkEngine('moveRobotTurnRight'))
+		self.buttonTurnRight.pack(side = LEFT)
+		self.buttonTurnLeft = Button(self.locationGroup, width = buttonSize, text = 'Turn left', command = lambda x = 1: self.checkEngine('moveRobotTurnLeft'))
+		self.buttonTurnLeft.pack(side = LEFT)
+
+		self.infoSaveLocation = StringVar()
+		self.infoSaveLocation.set('Click on the buttons to save the locations. ')
+		Label(self.locationGroup, textvariable = self.infoSaveLocation).pack(side = TOP, anchor = W)
+
+		# self.buttonSaveSpeakLocation = Button(self.locationGroup, width = buttonSize, text = 'Save speaking', command = lambda x = 1: self.checkEngine('saveSpeak'))
+		# self.buttonSaveSpeakLocation.grid(row = 1, column = 1)
+		# self.buttonSaveWaitLocation = Button(self.locationGroup, width = buttonSize, text = 'Save waiting', command = lambda x = 1: self.checkEngine('saveWait'))
+		# self.buttonSaveWaitLocation.grid(row = 1, column = 2)
+		# self.buttonSaveQuestionLocation = Button(self.locationGroup, width = buttonSize, text = 'Save asking', command = lambda x = 1: self.checkEngine('saveQuestion'))
+		# self.buttonSaveQuestionLocation.grid(row = 1, column = 3)
+
+		#--------------------------------------------------------------------
 		# Presentation buttons group
 		self.presentationButtonsGroup = LabelFrame(self.frame, text = 'Presentation', padx = 10, pady = 10)
 		self.presentationButtonsGroup.pack(side = TOP, fill = 'both')
@@ -192,11 +242,11 @@ class Commands():
 		self.buttonSpeakerPrevious.grid(row = 3, column = 2)
 
 		# Arms sub-group
-		self.buttonPointLeft = Button(self.presentationButtonsGroup, width = buttonSize, text = 'Left', command = lambda x = 1: self.executeCommandOnCurrentThread('pointLeft'))
+		self.buttonPointLeft = Button(self.presentationButtonsGroup, width = longButtonSize, text = 'Question/Point Left', command = lambda x = 1: self.executeCommandOnCurrentThread('pointLeft'))
 		self.buttonPointLeft.grid(row = 1, column = 7)
-		self.buttonPointCenter = Button(self.presentationButtonsGroup, width = buttonSize, text = 'Center', command = lambda x = 1: self.executeCommandOnCurrentThread('pointCenter'))
+		self.buttonPointCenter = Button(self.presentationButtonsGroup, width = longButtonSize, text = 'Question/Point Center', command = lambda x = 1: self.executeCommandOnCurrentThread('pointCenter'))
 		self.buttonPointCenter.grid(row = 2, column = 7)
-		self.buttonPointRight = Button(self.presentationButtonsGroup, width = buttonSize, text = 'Right', command = lambda x = 1: self.executeCommandOnCurrentThread('pointRight'))
+		self.buttonPointRight = Button(self.presentationButtonsGroup, width = longButtonSize, text = 'Question/Point Right', command = lambda x = 1: self.executeCommandOnCurrentThread('pointRight'))
 		self.buttonPointRight.grid(row = 3, column = 7)
 
 		# Fast edit speak
@@ -256,6 +306,7 @@ class Commands():
 			dic[b] = Button(self.preEditedFastSpeakingGroupSubFrame, text = dic[a], relief=FLAT, command = lambda x = dic[a]: self.loadInFastSpeaking(x))
 			dic[b].pack(side = TOP, anchor = W)
 
+		#----------------------------------------------------------------------------------------------------
 		# Bottom buttons group
 		self.bottom = LabelFrame(self.frame, text = 'Loop', padx = 10, pady = 10)
 		self.bottom.pack(side = BOTTOM, fill = 'both')

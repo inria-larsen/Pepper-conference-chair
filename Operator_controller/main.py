@@ -20,7 +20,7 @@ if __name__=="__main__":
 
 	# Check option's command
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--config", type=str, default='demo', help="Config file name")
+	parser.add_argument("--config", type=str, default='workshop', help="Config file name")
 	args = parser.parse_args()
 
 	# Read the config file

@@ -156,7 +156,7 @@ class Speech:
 	def exit(self):
 		self.stop_v = True
 		self.pause_v = False
-    #self.textToSpeech_service.setLanguage('French')
-        self.textToSpeech_service.setLanguage('English')
+		#self.textToSpeech_service.setLanguage('French')
+		self.textToSpeech_service.setLanguage('English')
 		self.audioDevice_service.muteAudioOut(False)
 		self.audioDevice_service.openAudioInputs()

@@ -544,6 +544,48 @@ class Engine(threading.Thread):
 
 
 
+	####################
+	## Move the robot: RIGHT
+	####################
+	def moveRobotRight(self):
+		# TODO
+		print('>> Robot moving right')
+
+	####################
+	## Move the robot: LEFT
+	####################
+	def moveRobotLeft(self):
+		# TODO
+		print('>> Robot moving left')
+
+	####################
+	## Move the robot: FORWARD
+	####################
+	def moveRobotForward(self):
+		# TODO
+		print('>> Robot moving forward')
+
+	####################
+	## Move the robot: BACKWARD
+	####################
+	def moveRobotBackward(self):
+		# TODO
+		print('>> Robot moving backward')
+
+	####################
+	## Move the robot: TURN RIGHT
+	####################
+	def moveRobotTurnRight(self):
+		# TODO
+		print('>> Robot turning right')
+
+	####################
+	## Move the robot: TURN LEFT
+	####################
+	def moveRobotTurnLeft(self):
+		# TODO
+		print('>> Robot turning left')
+
 
 	####################
 	## Save position as speaking location
