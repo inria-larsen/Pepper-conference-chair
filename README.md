@@ -24,7 +24,7 @@ Note: for the moment it has only been tested in Ubuntu 16.04
 
 ## Installation
 
-* Time_on_Pepper is the application that should be installed bia Choreographe on the robot.
+* Time_on_Pepper is the application that should be installed via Choreographe on the robot. It is used to show images and logos on the tablet.
 * Operator_controller is the main application and GUI providing the commands and controls for the operator.
 
 Instructions for installation are inside each application folder.
