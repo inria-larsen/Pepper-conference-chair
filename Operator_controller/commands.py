@@ -155,37 +155,41 @@ class Commands():
 		self.currentState.set('State: ')
 		Label(self.informationGroup, textvariable = self.currentState).pack(side = TOP, anchor = W)
 
-		# Save basic locations group
-		self.locationGroup = LabelFrame(self.frame, text = 'Locations', padx = 10, pady = 10)
-		self.locationGroup.pack(side = TOP, fill = 'both')
+		# Move robot group
+		self.moveRobotGroup = LabelFrame(self.frame, text = 'Locations', padx = 10, pady = 10)
+		self.moveRobotGroup.pack(side = TOP, fill = 'both')
 
 		self.infoSaveLocation = StringVar()
 		self.infoSaveLocation.set('Move the robot with the keyboard to identify the 3 basic locations. ')
-		Label(self.locationGroup, textvariable = self.infoSaveLocation).pack(side = TOP, anchor = W)
+		Label(self.moveRobotGroup, textvariable = self.infoSaveLocation).pack(side = TOP, anchor = W)
 
-		self.buttonMoveRight = Button(self.locationGroup, width = buttonSize, text = 'Move right', command = lambda x = 1: self.checkEngine('moveRobotRight'))
+		self.buttonMoveRight = Button(self.moveRobotGroup, width = buttonSize, text = 'E: Move right', command = lambda x = 1: self.checkEngine('moveRobotRight'))
 		self.buttonMoveRight.pack(side = LEFT)
-		self.buttonMoveLeft = Button(self.locationGroup, width = buttonSize, text = 'Move left', command = lambda x = 1: self.checkEngine('moveRobotLeft'))
+		self.buttonMoveLeft = Button(self.moveRobotGroup, width = buttonSize, text = 'A: Move left', command = lambda x = 1: self.checkEngine('moveRobotLeft'))
 		self.buttonMoveLeft.pack(side = LEFT)
-		self.buttonMoveForward = Button(self.locationGroup, width = buttonSize, text = 'Move forward', command = lambda x = 1: self.checkEngine('moveRobotForward'))
+		self.buttonMoveForward = Button(self.moveRobotGroup, width = buttonSize, text = 'Z: Move forward', command = lambda x = 1: self.checkEngine('moveRobotForward'))
 		self.buttonMoveForward.pack(side = LEFT)
-		self.buttonMoveBackward = Button(self.locationGroup, width = buttonSize, text = 'Move forward', command = lambda x = 1: self.checkEngine('moveRobotBackward'))
+		self.buttonMoveBackward = Button(self.moveRobotGroup, width = buttonSize, text = 'S: Move backward', command = lambda x = 1: self.checkEngine('moveRobotBackward'))
 		self.buttonMoveBackward.pack(side = LEFT)
-		self.buttonTurnRight = Button(self.locationGroup, width = buttonSize, text = 'Tur right', command = lambda x = 1: self.checkEngine('moveRobotTurnRight'))
+		self.buttonTurnRight = Button(self.moveRobotGroup, width = buttonSize, text = 'D: Turn right', command = lambda x = 1: self.checkEngine('moveRobotTurnRight'))
 		self.buttonTurnRight.pack(side = LEFT)
-		self.buttonTurnLeft = Button(self.locationGroup, width = buttonSize, text = 'Turn left', command = lambda x = 1: self.checkEngine('moveRobotTurnLeft'))
+		self.buttonTurnLeft = Button(self.moveRobotGroup, width = buttonSize, text = 'Q: Turn left', command = lambda x = 1: self.checkEngine('moveRobotTurnLeft'))
 		self.buttonTurnLeft.pack(side = LEFT)
+
+		# Save basic locations group
+		self.locationGroup = LabelFrame(self.frame, text = 'Save Locations', padx = 10, pady = 10)
+		self.locationGroup.pack(side = TOP, fill = 'both')
 
 		self.infoSaveLocation = StringVar()
 		self.infoSaveLocation.set('Click on the buttons to save the locations. ')
 		Label(self.locationGroup, textvariable = self.infoSaveLocation).pack(side = TOP, anchor = W)
 
-		# self.buttonSaveSpeakLocation = Button(self.locationGroup, width = buttonSize, text = 'Save speaking', command = lambda x = 1: self.checkEngine('saveSpeak'))
-		# self.buttonSaveSpeakLocation.grid(row = 1, column = 1)
-		# self.buttonSaveWaitLocation = Button(self.locationGroup, width = buttonSize, text = 'Save waiting', command = lambda x = 1: self.checkEngine('saveWait'))
-		# self.buttonSaveWaitLocation.grid(row = 1, column = 2)
-		# self.buttonSaveQuestionLocation = Button(self.locationGroup, width = buttonSize, text = 'Save asking', command = lambda x = 1: self.checkEngine('saveQuestion'))
-		# self.buttonSaveQuestionLocation.grid(row = 1, column = 3)
+		self.buttonSaveSpeakLocation = Button(self.locationGroup, width = buttonSize, text = 'Save speaking', command = lambda x = 1: self.checkEngine('saveSpeak'))
+		self.buttonSaveSpeakLocation.pack(side = LEFT)
+		self.buttonSaveWaitLocation = Button(self.locationGroup, width = buttonSize, text = 'Save waiting', command = lambda x = 1: self.checkEngine('saveWait'))
+		self.buttonSaveWaitLocation.pack(side = LEFT)
+		self.buttonSaveQuestionLocation = Button(self.locationGroup, width = buttonSize, text = 'Save asking', command = lambda x = 1: self.checkEngine('saveQuestion'))
+		self.buttonSaveQuestionLocation.pack(side = LEFT)
 
 		#--------------------------------------------------------------------
 		# Presentation buttons group
