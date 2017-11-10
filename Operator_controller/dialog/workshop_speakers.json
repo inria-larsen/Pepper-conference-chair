@@ -7,103 +7,151 @@
 	},
 	{
 		"id": 2,
+		"introduction": ["I am not an experiment, Serena."],
+		"duration": 0,
+		"extraDuration": 0
+	},
+	{
+		"id": 3,
+		"introduction": ["You are right. It is true that with my onboard sensors I cannot yet understand what happens in this room. I do not even see you well. As a robot I am a disaster."],
+		"duration": 0,
+		"extraDuration": 0
+	},
+	{
+		"id": 4,
+		"introduction": ["You are right I am not yet fully autonomous. But that's the robot life in these days!"],
+		"duration": 0,
+		"extraDuration": 0
+	},
+	{
+		"id": 5,
+		"introduction": ["My human pilot and I will do our best to serve this workshop. After all, we are in a theatre and this is an act."],
+		"duration": 0,
+		"extraDuration": 0
+	},
+	{
+		"id": 6,
 		"introduction": ["Serena Ivaldi will now introduce the workshop."],
 		"duration": 25,
 		"extraDuration": 5
 	},
 	{
-		"id": 3,
+		"id": 7,
 		"introduction": ["The first speaker is Francesco Nori, from Google Deep Mind."],
 		"duration": 25,
 		"extraDuration": 5
 	},
 	{
-		"id": 4,
-		"introduction": ["We now have the short presentations from the authors presenting a poster."],
-		"duration": 25,
-		"extraDuration": 5
-	},
-	{
-		"id": 5,
-		"introduction": ["I hope your coffee was good. The next speaker is Abderramane Kheddar, from LIRMM."],
-		"duration": 25,
-		"extraDuration": 5
-	},
-	{
-		"id": 6,
-		"introduction": ["The next speaker is Rudolf Lioutikov, from TU Darmstadt."],
-		"duration": 25,
-		"extraDuration": 5
-	},
-	{
-		"id": 7,
-		"introduction": ["The next speaker is Dongheui Lee, from TU Munich and DLR."],
-		"duration": 25,
-		"extraDuration": 5
-	},
-	{
 		"id": 8,
-		"introduction": ["The next speaker is ..."],
+		"introduction": ["We now have the short presentations from the authors presenting a poster. All the poster presenters should come here."],
 		"duration": 25,
 		"extraDuration": 5
 	},
 	{
 		"id": 9,
-		"introduction": ["Keep the questions for the discussions in the afternoon! Now it is time for lunch. See you at half past one!"],
+		"introduction": ["It is now the time to meet the speakers at the poster session, during the coffee break."],
 		"duration": 0,
 		"extraDuration": 0
 	},
 	{
 		"id": 10,
-		"introduction": ["Welcome back! We have great speakers for this afternoon session. The first speaker is Chris Atkenson, from CMU."],
-		"duration": 25,
-		"extraDuration": 5
+		"introduction": ["I hope your coffee was good. The second session may now start."],
+		"duration": 0,
+		"extraDuration": 0
 	},
 	{
 		"id": 11,
-		"introduction": ["The next speaker is Sethu Vijaykumar, from the University of Edinburgh."],
+		"introduction": ["The next speaker is Abderramane Kheddar, from LIRMM."],
 		"duration": 25,
 		"extraDuration": 5
 	},
 	{
 		"id": 12,
-		"introduction": ["The next speaker is ..."],
+		"introduction": ["The next speaker is Rudolf Lioutikov, from TU Darmstadt."],
 		"duration": 25,
 		"extraDuration": 5
 	},
 	{
 		"id": 13,
-		"introduction": ["Time for coffee and posters! See you in 20 minutes!"],
-		"duration": 0,
-		"extraDuration": 0
+		"introduction": ["The next speaker is Dongheui Lee, from TU Munich and DLR."],
+		"duration": 25,
+		"extraDuration": 5
 	},
 	{
 		"id": 14,
-		"introduction": ["Welcome back, I hope your coffee was good. The next speaker is Graham Deacon, from Ocado Technologies."],
-		"duration": 25,
-		"extraDuration": 5
-	},
-	{
-		"id": 15,
-		"introduction": ["The next speaker is Luka Peternel, from IIT."],
-		"duration": 25,
-		"extraDuration": 5
-	},
-	{
-		"id": 16,
 		"introduction": ["The next speaker is ..."],
 		"duration": 25,
 		"extraDuration": 5
 	},
 	{
+		"id": 15,
+		"introduction": ["Keep the questions for the discussions in the afternoon! Now it is time for lunch. See you at half past one!"],
+		"duration": 0,
+		"extraDuration": 0
+	},
+	{
+		"id": 16,
+		"introduction": ["Welcome back! I hope you had a nice lunch. We have great speakers for this afternoon session."],
+		"duration": 0,
+		"extraDuration": 0
+	},
+	{
 		"id": 17,
+		"introduction": ["We have great speakers for this afternoon session."],
+		"duration": 0,
+		"extraDuration": 0
+	},
+	{
+		"id": 18,
+		"introduction": ["The first speaker is Chris Atkenson, from CMU."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 19,
+		"introduction": ["The next speaker is Sethu Vijaykumar, from the University of Edinburgh."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 20,
+		"introduction": ["The next speaker is Maximo Roa, from DLR."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 21,
+		"introduction": ["Time for coffee and posters! See you in 20 minutes!"],
+		"duration": 0,
+		"extraDuration": 0
+	},
+	{
+		"id": 22,
+		"introduction": ["Welcome back, I hope your coffee was good. This is the last session of the day. The next speaker is Graham Deacon, from Ocado Technologies."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 23,
+		"introduction": ["The next speaker is Luka Peternel, from IIT."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 24,
+		"introduction": ["The next speaker is Kazuya Otani, from INRIA."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 25,
 		"introduction": ["Wow, we had a lot of interesting talks today. Time to discuss!"],
 		"duration": 25,
 		"extraDuration": 5
 	},
 	{
-		"id": 18,
-		"introduction": ["Sorry to interrupt, but it is time to leave the room! Thanks for the beautiful discussions. I cannot drink, otherwise I would join you for a drink in a British pub! Well, see you tomorrow."],
+		"id": 26,
+		"introduction": ["Sorry to interrupt, but it is time to leave the room! Thanks for the beautiful discussions. I cannot drink, otherwise I would join you for a drink in one of the British pubs on the canal! Well, see you tomorrow."],
 		"duration": 0,
 		"extraDuration": 0
 	}
