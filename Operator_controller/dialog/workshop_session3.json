@@ -1,0 +1,38 @@
+[
+	{
+		"id": 1,
+		"introduction": ["Welcome back! I hope you had a nice lunch."],
+		"duration": 0,
+		"extraDuration": 0
+	},
+	{
+		"id": 2,
+		"introduction": ["We have great speakers for this afternoon session."],
+		"duration": 0,
+		"extraDuration": 0
+	},
+	{
+		"id": 3,
+		"introduction": ["The first speaker is Chris Atkenson, from CMU."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 4,
+		"introduction": ["The next speaker is Sethu Vijaykumar, from the University of Edinburgh."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 5,
+		"introduction": ["The next speaker is Maximo Roa, from DLR."],
+		"duration": 25,
+		"extraDuration": 5
+	},
+	{
+		"id": 6,
+		"introduction": ["Time for coffee and posters! See you in 20 minutes!"],
+		"duration": 0,
+		"extraDuration": 0
+	}
+]
