@@ -571,15 +571,14 @@ class Commands():
 	## Refresh current thread
 	####################
 	def updateGui(self):
-
-		self.idCurrentSpeaker.set('Speaker: ' + str(self.currentSpeaker.id))
-
-		intro = ""
-		for introdution in self.currentSpeaker.introduction:
-			intro += introdution + ' '
-		self.introCurrentSpeaker.set('Introduction: ' + intro)
-		self.durationCurrentSpeaker.set('Duration: ' + str(self.currentSpeaker.duration) + ' with ' + str(self.currentSpeaker.extraDuration) + ' extra')
-		self.timerLeft.set('Timer left: ' + str(self.currentTimer))
+                if not self.shut: # quick hack to prevent freeze at shutdown
+                    self.idCurrentSpeaker.set('Speaker: ' + str(self.currentSpeaker.id))
+                    intro = ""
+                    for introdution in self.currentSpeaker.introduction:
+                            intro += introdution + ' '
+                    self.introCurrentSpeaker.set('Introduction: ' + intro)
+                    self.durationCurrentSpeaker.set('Duration: ' + str(self.currentSpeaker.duration) + ' with ' + str(self.currentSpeaker.extraDuration) + ' extra')
+                    self.timerLeft.set('Timer left: ' + str(self.currentTimer))
 
 
 

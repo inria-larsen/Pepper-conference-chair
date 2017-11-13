@@ -131,3 +131,4 @@ class Tablet:
 	####################
 	def timerClean(self):
 		self.tablet_service.hideWebview()
+		self.logo()
