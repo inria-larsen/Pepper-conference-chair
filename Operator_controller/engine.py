@@ -725,6 +725,7 @@ class Engine(threading.Thread):
 	## Set the current state and share it with command	
 	####################
 	def setState(self, s):
+            if not self.commands.shut: # quick hack to prevent freeze at shutdown
 		self.state = s
 		self.commands.currentState.set('State: ' + str(self.state))
 
