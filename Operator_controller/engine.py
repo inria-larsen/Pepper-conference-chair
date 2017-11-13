@@ -98,8 +98,8 @@ class Engine(threading.Thread):
 	####################
 	def pause(self):
 		self.pause_v = True
-		self.speech_service.pause()
-		self.tablet_service.pause()
+		#self.speech_service.pause()
+		#self.tablet_service.pause()
 
 
 
