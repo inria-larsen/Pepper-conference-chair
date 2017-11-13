@@ -98,8 +98,10 @@ class Engine(threading.Thread):
 	####################
 	def pause(self):
 		self.pause_v = True
+		#test to avoid speech getting stuck (bug fix)
 		#self.speech_service.pause()
-		#self.tablet_service.pause()
+		#this cannot be commented, otherwise tablet wont display the image
+		self.tablet_service.pause()
 
 
 
